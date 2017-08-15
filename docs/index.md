@@ -33,16 +33,17 @@ The following documents are a collection of OSG software and release team proces
     - [How to write tests](https://github.com/opensciencegrid/osg-test)
     - [Creating the VO client package](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/CreateVOClient)
     - [Process for distributing VO data](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/DistributingVOData)
-    - [New team member setup](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/NewTeamMember)
+    - [New team member setup](software/new-team-member)
     - [Migrating documents to markdown](software/markdown-migration.md)
-    - [Documentation tips](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WritingDocumentation)
+    - [Documentation tips](documentation/writing-documentation)
     - [Documentation snippets](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/DocumentationSnippets)
-    - [Effort Tracking](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/EffortTracking)
-
+    - [Effort Tracking](software/effort-tracking)
+    - [Promoting packages from upcoming to main](software/upcoming-to-main)
+    - [Repository management](software/repository-management)
 - Software-specific notes
     - [Component notes](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ComponentHome)
     - [Team Expertise](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TeamExpertise)
-    - [Running CE scalability tests](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/CETestScaling)
+    - [Running CE scalability tests](software/ce-test-scaling)
     - [BeStMan2 notes](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/BestmanDevelopment)
     - [Building Globus](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/BuildingGlobus)
     - [Globus mass update procedure](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/GlobusMassUpdateProcedure)
@@ -60,25 +61,24 @@ The following documents are a collection of OSG software and release team proces
 
 ### Release
 
-- [Release policy](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ReleasePolicy)
+- [Release policy](release/release-policy)
 - [Release schedule](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareReleaseSchedule)
-- [Repository management](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/RepositoryManagement)
-- [Promoting packages from upcoming to main](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/UpcomingToMain)
 - [Acceptance testing procedures](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/AcceptanceTestingHome)
-- [How to cut a new release](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/HowToCutRelease)
+- [How to cut a new release](release/cut-sw-release)
 - [How to cut a data release](release/cut-data-release.md)
 - [Manual testing recipes](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TestingRecipes)
 
 ### Infrastructure
 
 - Koji
-    - [Koji infrastructure overview](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiInfOverview)
+    - [Koji infrastructure overview](infrastructure/koji-inf-overview)
     - [Koji workflow](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiWorkflow)
-    - [KojiHub setup](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiHubSetup)
+    - [KojiHub setup](infrastructure/koji-hub-setup)
     - [Rebuilding for new koji build targets](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiMassRebuilds)
-    - [Restoring Koji](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiRestoreRecipe)
-    - [Notes on Koji permissions and policy](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiPolicyWriting)
+    - [Restoring Koji](infrastructure/koji-restore-recipe)
+    - [Notes on Koji permissions and policy](infrastructure/koji-policy-writing)
     - [Koji SL6 upgrade notes](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/KojiSL6Upgrade)
+    - [Koji initial install](infrastructure/koji-initial-install)
 - Other
     - [Madison ITB](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/MadisonITB)
     - [Infrastructure contacts](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/InfSupportContacts)
@@ -87,5 +87,5 @@ The following documents are a collection of OSG software and release team proces
 
 ### Support
 
-- [Software support](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareSupport)
+- [Software support](policy/software-support)
 - [Triage duty](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TriageDuty)

@@ -89,8 +89,39 @@ Use descriptive, all-caps text wrapped in angle brackets to to highlight areas t
 specific to their site. You may also use TWiki-style color highlighting. For example:
 
 ```console
-root@host # condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
+root@host # condor_ce_trace -d /COLOR/<CE HOSTNAME>/ENDCOLOR/
 ```
+
+Replacing `/` with `%` and `COLOR` with one of the following colors:
+
+```
+%BLUE%BLUE%ENDCOLOR%
+%GRAY%GRAY%ENDCOLOR%
+%PURPLE%PURPLE%ENDCOLOR%
+%FUCHSIA%FUCHSIA%ENDCOLOR%
+%AQUA%AQUA%ENDCOLOR%
+%MAROON%MAROON%ENDCOLOR%
+%OLIVE%OLIVE%ENDCOLOR%
+%BLACK%BLACK%ENDCOLOR%
+%YELLOW%YELLOW%ENDCOLOR%
+%TEAL%TEAL%ENDCOLOR%
+%NAVY%NAVY%ENDCOLOR%
+%GREEN%GREEN%ENDCOLOR%
+%WHITE%WHITE%ENDCOLOR%
+%SILVER%SILVER%ENDCOLOR%
+%RED%RED%ENDCOLOR%
+%LIME%LIME%ENDCOLOR%
+```
+
+For example, the following text would be highlighted red:
+
+```
+/RED/# This is a red comment/ENDCOLOR/
+/RED/# So is this/ENDCOLOR/
+```
+
+!!! note
+    To highlight text across multiple lines in a code-block, each line needs to be highlighted separately.
 
 Lists
 -----

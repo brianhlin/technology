@@ -249,16 +249,24 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
 
 ##### Typical workflow when building out of GitHub repos
 
-1. Fork the repository of the package that you would like to build
-1. Create a new branch in your fork
-1. Make, commit, and push changes to your new branch
-1. In your fork, tag the commit that you would like to build
-1. In the `upstream/osg.github.source`, change the repo to point at your fork and tag
-1. Attempt a scratch build
-1. If the build fails, remove the tag and repeat steps 3-6
-1. Submit a PR to merge changes upstream
-1. Tag the final version on the upstream fork
-1. Build the version that will go through the normal software cycle
+This workflow requires write access for the repository of the package that you would like to build in the
+`opensciencegrid` GitHub organization:
+
+1. Clone the repository for the package that you would like to build from the `opensciencegrid` organization
+1. Create a new branch in your local clone named after the version tag you would like to build, e.g. `v1.12.2`.
+   Update the `tag` in `upstream/osg.github.source` to point at your new branch.
+1. Make packaging changes:
+    1. Make and commit your changes to the new branch
+    1. Push your branch to the `opensciencegrid`'s repository
+    1. Attempt a scratch build
+    1. If the build fails, repeat steps a-c
+    1. Submit a PR to merge changes upstream
+1. After changes have been merged, finalize the build
+    1. Delete the versioned branch that you created
+    1. Tag the final version on the upstream fork (this should be the same as the versioned branch name)
+    1. Update the `hash` in `upstream/osg.github.source`  to point at the git SHA corresponding to the versioned branch
+    1. Commit the changes to `upstream/osg.github.source` in SVN
+    1. Build the version that will go through the normal software cycle
 
 !!! note
     Packaging-only changes should be tagged with a release number of the format `v<version>-<release>`, e.g. `v3.4.23-2`

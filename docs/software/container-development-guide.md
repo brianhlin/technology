@@ -24,7 +24,7 @@ New Containers Using GitHub Actions (preferred)
 
         FROM opensciencegrid/software-base:fresh
 
-        LABEL maintainer OSG Software <help@opensciencegrid.org>
+        LABEL maintainer OSG Software <support@opensciencegrid.org>
 
         RUN yum update -y && \
             yum clean all && \
@@ -103,7 +103,7 @@ New Containers Using Travis CI
 
         FROM opensciencegrid/software-base:fresh
 
-        LABEL maintainer OSG Software <help@opensciencegrid.org>
+        LABEL maintainer OSG Software <support@opensciencegrid.org>
 
         RUN yum update -y && \
             yum clean all && \

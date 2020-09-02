@@ -16,7 +16,7 @@ Getting Help
 
 If you have questions or concerns that are not addressed in this document, please contact us at the usual locations:
 
--  [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
+-  [support@opensciencegrid.org](mailto:support@opensciencegrid.org)
 -  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, 
    send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
@@ -34,7 +34,7 @@ This service was retired in favor of two different ticketing systems, depending 
 | Anyone else                        | [Freshdesk](https://support.opensciencegrid.org) |
 
 If you experience any problems with ticketing, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 Service-specific details
 ------------------------
@@ -62,7 +62,7 @@ The OSG recommends using the following CA certificate services:
     for the security and setup implications of switching to a Let's Encrypt host or service certificate.
 
 If you experience any problems acquiring host or service certificates, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 
 ### Software Repository ###
@@ -71,7 +71,7 @@ The OSG Software repository includes the YUM repositories, client tarballs, and 
 The physical hosting location changed during the migration but was otherwise unchanged.
 
 If you experience any problems with the OSG Software repository, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 ### MyOSG and OIM ###
 
@@ -88,7 +88,7 @@ Updates to the aforementioned data can be requested via email or pull request.
     Please see the [OSG CA](#osg-ca) section for information regarding the OIM certificate service.
 
 If you experience any problems with MyOSG or the topology repository, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 ### GRACC Accounting and WLCG Accounting ###
 
@@ -96,7 +96,7 @@ No changes were made to the [GRACC accounting](https://gracc.opensciencegrid.org
 service during the service migration.
 
 If you experience any problems with GRACC accounting, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 ### OASIS and CVMFS ###
 
@@ -106,7 +106,7 @@ The OSG hosts a CVMFS Stratum-0 for keysigning, a repository server, and a CVMFS
 The physical hosting location of these services were moved to Nebraska without any other changes.
 
 If you experience any problems with OASIS or CVMFS, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 ### VOMS Admin Server ###
 
@@ -129,11 +129,11 @@ pilot jobs currently running in the OSG.
 The physical hosting location of the central Collector was moved but there were no other changes.
 
 If you experience any problems with the central Collector, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 ### Homepage ###
 
 The [OSG homepage](https://opensciencegrid.org) was a Wordpress instance that has been moved to a static site.
 
 If you experience any problems with the homepage, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).

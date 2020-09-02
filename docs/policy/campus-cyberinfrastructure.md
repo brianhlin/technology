@@ -39,7 +39,7 @@ To contribute computational resources to the OSG, the following will be needed:
 - Shared home directories on each cluster node
 
 !!!success "Next steps"
-    If you are interested in OSG-offered services, please [contact us](mailto:help@opensciencegrid.org) for a
+    If you are interested in OSG-offered services, please [contact us](mailto:support@opensciencegrid.org) for a
     consultation, even if your site does not meet all the conditions as outlined above!
 
 Additional Materials

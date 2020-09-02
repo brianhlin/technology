@@ -36,7 +36,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
     1. Generate the repository deploy key:
 
-            ssh-keygen -t rsa -b 4096 -C "help@opensciencegrid.org" -f deploy-key -N ''
+            ssh-keygen -t rsa -b 4096 -C "support@opensciencegrid.org" -f deploy-key -N ''
 
     1. Install the `travis` gem:
 
@@ -127,7 +127,7 @@ This section describes creating an ITB repository for a documentation area creat
     1. `cd` into the non-ITB repository and generate the ITB deploy key
 
             cd <REPO NAME>
-            ssh-keygen -t rsa -b 4096 -C "help@opensciencegrid.org" -f deploy-itb
+            ssh-keygen -t rsa -b 4096 -C "support@opensciencegrid.org" -f deploy-itb
 
     1. Install the `travis` gem:
 

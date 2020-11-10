@@ -1,0 +1,2007 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opensciencegrid.org/technology/software/globus-mass-update-procedure/">
+      
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Globus Mass Update Procedure - OSG Technology Area</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#globus-mass-update-procedure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-header-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OSG Technology Area
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Globus Mass Update Procedure
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OSG Technology Area
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Software
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Software" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Packaging
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Packaging" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rpm-development-guide/" class="md-nav__link">
+      RPM Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../osg-build-tools/" class="md-nav__link">
+      OSG Build Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../quilt/" class="md-nav__link">
+      Using Quilt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../upcoming-to-main/" class="md-nav__link">
+      Upcoming to Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../koji-workflow/" class="md-nav__link">
+      Koji Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../create-vo-client/" class="md-nav__link">
+      Creating the VO Client Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container-development-guide/" class="md-nav__link">
+      Container Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../repository-management/" class="md-nav__link">
+      Repository Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Globus Mass Update Procedure
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Globus Mass Update Procedure
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prep-work" class="md-nav__link">
+    Prep work
+  </a>
+  
+    <nav class="md-nav" aria-label="Prep work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    Docs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svn" class="md-nav__link">
+    SVN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#koji-matcarl" class="md-nav__link">
+    Koji (Mat/Carl)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-package-work" class="md-nav__link">
+    Per-package work
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-package work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strict-pass-through-no-osg-directory" class="md-nav__link">
+    Strict pass-through (no osg/ directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-strict-pass-through" class="md-nav__link">
+    Non-strict pass-through
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    Merge
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koji-matcarl_1" class="md-nav__link">
+    Koji (Mat/Carl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svn_1" class="md-nav__link">
+    SVN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../resurrecting-epel-packages/" class="md-nav__link">
+      Resurrecting Epel Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../koji-mass-rebuilds/" class="md-nav__link">
+      Koji Mass Rebuilds
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../development-process/" class="md-nav__link">
+      Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git-software-development/" class="md-nav__link">
+      Git Software Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ce-test-scaling/" class="md-nav__link">
+      CE Scale Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ipv6-testing/" class="md-nav__link">
+      IPv6 Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../requesting-tokens/" class="md-nav__link">
+      How to Request Tokens
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-support/" class="md-nav__link">
+      Software Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../effort-tracking/" class="md-nav__link">
+      Effort Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../release-planning/" class="md-nav__link">
+      Release Planning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new-team-member/" class="md-nav__link">
+      New Team Member
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Release
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Release" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Release
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-sw-release/" class="md-nav__link">
+      How to Cut a Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-data-release/" class="md-nav__link">
+      How to Cut a Data Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/announce-rft-packages/" class="md-nav__link">
+      Ready for Testing Announcements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/new-release-series/" class="md-nav__link">
+      New Release Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/old-release-removal/" class="md-nav__link">
+      Old Release Series Removal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/itb-testing/" class="md-nav__link">
+      ITB Prerelease Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/empty-pkgs/" class="md-nav__link">
+      Empty Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/acceptance-testing/" class="md-nav__link">
+      Acceptance Testing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Policy
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Policy" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Policy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gridftp-gsi-migration/" class="md-nav__link">
+      GridFTP and GSI Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/campus-cyberinfrastructure/" class="md-nav__link">
+      Campus Cyberinfrastructure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/cream-support/" class="md-nav__link">
+      CREAM-CE Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/release-series/" class="md-nav__link">
+      Release Series Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/globus-toolkit/" class="md-nav__link">
+      Globus Toolkit Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/external-oasis-repos/" class="md-nav__link">
+      OASIS Repository Mirroring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/flexible-release-model/" class="md-nav__link">
+      Flexible Release Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-release/" class="md-nav__link">
+      Software Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/container-release/" class="md-nav__link">
+      Container Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/community-testing/" class="md-nav__link">
+      Community Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-user/" class="md-nav__link">
+      Registering with the OSG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-admin/" class="md-nav__link">
+      Approving COManage Registrations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Documentation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/writing-documentation/" class="md-nav__link">
+      Writing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/reviewing-documentation/" class="md-nav__link">
+      Reviewing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/style-guide/" class="md-nav__link">
+      Markdown Style Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/new-doc-area/" class="md-nav__link">
+      Creating a New Area
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Historical Transitions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Historical Transitions" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Historical Transitions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/service-migrations-spring-2018/" class="md-nav__link">
+      Service Migrations - Spring 2018
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gums-retire/" class="md-nav__link">
+      GUMS Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/bestman2-retire/" class="md-nav__link">
+      BeStMan2 Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/voms-admin-retire/" class="md-nav__link">
+      VOMS Admin Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/sha2-support/" class="md-nav__link">
+      SHA-2 Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/markdown-migration/" class="md-nav__link">
+      Migrating Documents to Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Meetings
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Meetings" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Meetings
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201109/" class="md-nav__link">
+      November 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201102/" class="md-nav__link">
+      November 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201026/" class="md-nav__link">
+      October 26, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201019/" class="md-nav__link">
+      October 19, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201012/" class="md-nav__link">
+      October 12, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201005/" class="md-nav__link">
+      October 5, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200928/" class="md-nav__link">
+      September 28, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200914/" class="md-nav__link">
+      September 14, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200824/" class="md-nav__link">
+      August 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200817/" class="md-nav__link">
+      August 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200810/" class="md-nav__link">
+      August 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200803/" class="md-nav__link">
+      August 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200727/" class="md-nav__link">
+      July 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200720/" class="md-nav__link">
+      July 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200713/" class="md-nav__link">
+      July 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200706/" class="md-nav__link">
+      July 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200629/" class="md-nav__link">
+      June 29, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200622/" class="md-nav__link">
+      June 22, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200615/" class="md-nav__link">
+      June 15, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200608/" class="md-nav__link">
+      June 8, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200601/" class="md-nav__link">
+      June 1, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200518/" class="md-nav__link">
+      May 18, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200511/" class="md-nav__link">
+      May 11, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200504/" class="md-nav__link">
+      May 4, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200427/" class="md-nav__link">
+      April 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200420/" class="md-nav__link">
+      April 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200413/" class="md-nav__link">
+      April 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200406/" class="md-nav__link">
+      April 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200330/" class="md-nav__link">
+      March 30, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200323/" class="md-nav__link">
+      March 23, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200316/" class="md-nav__link">
+      March 16, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200309/" class="md-nav__link">
+      March 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200302/" class="md-nav__link">
+      March 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200224/" class="md-nav__link">
+      February 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200217/" class="md-nav__link">
+      February 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200210/" class="md-nav__link">
+      February 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200203/" class="md-nav__link">
+      February 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200127/" class="md-nav__link">
+      January, 27 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200113/" class="md-nav__link">
+      January, 13 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200106/" class="md-nav__link">
+      January, 6 2020
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prep-work" class="md-nav__link">
+    Prep work
+  </a>
+  
+    <nav class="md-nav" aria-label="Prep work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    Docs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svn" class="md-nav__link">
+    SVN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#koji-matcarl" class="md-nav__link">
+    Koji (Mat/Carl)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-package-work" class="md-nav__link">
+    Per-package work
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-package work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strict-pass-through-no-osg-directory" class="md-nav__link">
+    Strict pass-through (no osg/ directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-strict-pass-through" class="md-nav__link">
+    Non-strict pass-through
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    Merge
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#koji-matcarl_1" class="md-nav__link">
+    Koji (Mat/Carl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svn_1" class="md-nav__link">
+    SVN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/globus-mass-update-procedure.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="globus-mass-update-procedure">Globus mass update procedure<a class="headerlink" href="#globus-mass-update-procedure" title="Permanent link">&para;</a></h1>
+<p>Globus consists of many packages, which we tend to update at the same time. This requires extra work, primarily to prevent dependency issues.</p>
+<h2 id="prep-work">Prep work<a class="headerlink" href="#prep-work" title="Permanent link">&para;</a></h2>
+<h3 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h3>
+<p>Create a spreadsheet or table of the builds. Table should have NVR, perhaps URL, status (not started, imported, built, tested), and comments (mostly to record if it was a simple pass-through or not).</p>
+<p>Get packages to update, using <code>osg-outdated-epel-pkgs</code> from <code>opensciencegrid/tools</code>.</p>
+<p>To get in N-V-R format:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> ./osg-outdated-epel-pkgs <span class="p">|</span> <span class="se">\</span>
+    egrep <span class="s1">&#39;^(globus|myproxy|gsi)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+    awk <span class="s1">&#39;BEGIN {OFS=&quot;&quot;} {print $1, &quot;-&quot;, $3}&#39;</span>
+</code></pre></div>
+
+<p>or to split up N and V-R in a comma-separated way (which you can feed into a Google Sheet to turn it into two columns):</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> ./osg-outdated-epel-pkgs <span class="p">|</span> <span class="se">\</span>
+    egrep <span class="s1">&#39;^(globus|myproxy|gsi)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+    awk <span class="s1">&#39;BEGIN {OFS=&quot;&quot;} {print $1, &quot;,&quot;, $3}&#39;</span>
+</code></pre></div>
+
+<h3 id="svn">SVN<a class="headerlink" href="#svn" title="Permanent link">&para;</a></h3>
+<p>Create a separate SVN branch and populate it with all the packages you will update. (Get the list from the doc created above).</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@uw]$</span> svn mkdir file:///p/vdt/workspace/svn/native/redhat/branches/globus
+<span class="gp">#</span><span class="c1">## From a checkout, in native/redhat</span>
+<span class="hll"><span class="gp">[you@uw]$</span> <span class="k">for</span> x in &lt;PACKAGES&gt;<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+</span>     svn copy <span class="nv">$x</span> branches/globus/<span class="si">${</span><span class="nv">x</span><span class="p">#trunk/</span><span class="si">}</span><span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</code></pre></div>
+
+<p>Change <code>&lt;PACKAGES&gt;</code> for the list of package names from generated in the above section (<a href="#docs">Docs</a>))</p>
+<h3 id="koji-matcarl">Koji (Mat/Carl)<a class="headerlink" href="#koji-matcarl" title="Permanent link">&para;</a></h3>
+<p>This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.</p>
+<p>Ensure Koji tags exist: a destination tag, and a build tag, one for each dver, e.g.:</p>
+<ul>
+<li>el6-globus</li>
+<li>el6-globus-build</li>
+<li>el7-globus</li>
+<li>el7-globus-build</li>
+</ul>
+<p>Set up tag inheritence: base the build tags off of the corresponding <code>dist-el?-build</code> tag. This is because we don't want old osg packages interfering with the new versions we're building. These may already exist -- check the <code>el?-globus-build</code> tags in the web interface.</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        osg-koji add-tag --parent<span class="o">=</span>dist-<span class="nv">$el</span>-build <span class="se">\</span>
+            --arches<span class="o">=</span>x86_64 <span class="nv">$el</span>-globus-build<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+</code></pre></div>
+
+<p>Tag <code>buildsys-macros</code> for the OSG release into the build tags:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+       <span class="nv">buildsys_macros_nvr</span><span class="o">=</span><span class="k">$(</span>osg-koji -q list-tagged osg-3.4-<span class="nv">$el</span>-development <span class="se">\</span>
+         buildsys-macros --latest <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span><span class="p">;</span> <span class="se">\</span>
+       osg-koji tag-pkg <span class="nv">$el</span>-globus-build <span class="nv">$buildsys_macros_nvr</span><span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</code></pre></div>
+
+<p>Ensure Koji targets exist, one for each dver, e.g.:</p>
+<ul>
+<li>el6-globus (el6-globus-build &rarr; el6-globus)</li>
+<li>el7-globus (el7-globus-build &rarr; el7-globus)</li>
+<li>kojira-fake-el6-globus (el6-globus &rarr; kojira-fake)</li>
+<li>kojira-fake-el7-globus (el7-globus &rarr; kojira-fake)</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+       osg-koji add-target <span class="nv">$el</span>-globus <span class="nv">$el</span>-globus-build <span class="nv">$el</span>-globus<span class="p">;</span> <span class="se">\</span>
+       osg-koji add-target kojira-fake-<span class="nv">$el</span>-globus <span class="nv">$el</span>-globus kojira-fake<span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</code></pre></div>
+
+<p>If basing the packages off of the Globus repos, add the Globus repos as external repos, and add them to the build tags (but not the dest tags).</p>
+<p>Edit <code>/etc/koji-hub/plugins/sign.conf</code> and set up the GPG signing for the RPMs. Run <code>/etc/koji-hub/plugins/fix-permissions</code> after editing the file.</p>
+<h2 id="per-package-work">Per-package work<a class="headerlink" href="#per-package-work" title="Permanent link">&para;</a></h2>
+<ol>
+<li>cd into branches/globus</li>
+<li>Download packages from <a href="http://dl.fedoraproject.org/pub/epel/6/SRPMS/">http://dl.fedoraproject.org/pub/epel/6/SRPMS/</a></li>
+</ol>
+<p>A useful alias:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@host]$</span> <span class="nb">alias</span> osg-build-globus<span class="o">=</span><span class="s2">&quot;osg-build koji --ktt el6-globus --ktt el7-globus&quot;</span>
+</code></pre></div>
+
+<h3 id="strict-pass-through-no-osg-directory">Strict pass-through (no osg/ directory)<a class="headerlink" href="#strict-pass-through-no-osg-directory" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><code><span class="hll"><span class="gp">[you@uw]$</span> osg-import-srpm &lt;URL&gt;
+</span><span class="hll"><span class="gp">[you@uw]$</span> osg-build-globus --scratch &lt;PKG&gt;
+</span></code></pre></div>
+
+<p>Change <code>&lt;URL&gt;</code> for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm
+and <code>&lt;PKG&gt;</code>&gt; for the name of the package e.g. <code>globus-authz</code></p>
+</li>
+<li>
+<p>Commit - use a message like "Update to 3.12-1 from EPEL (SOFTWARE-2197)"</p>
+</li>
+<li>
+<p>Do a non-scratch build.</p>
+</li>
+</ol>
+<h3 id="non-strict-pass-through">Non-strict pass-through<a class="headerlink" href="#non-strict-pass-through" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@uw]$</span> osg-import-srpm --diff3 &lt;URL&gt;
+</code></pre></div>
+
+<p>Change <code>&lt;URL&gt;</code> for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm</p>
+</li>
+<li>
+<p>Fix merge conflicts in the spec file. If not already there, put a .1 after the Release number to mark the changes as ours.</p>
+</li>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@uw]$</span> osg-build quilt &lt;PKG&gt;
+</code></pre></div>
+
+<p>Change <code>&lt;PKG&gt;</code>&gt; for the name of the package e.g. <code>globus-authz</code></p>
+</li>
+<li>
+<p>Fix patches if necessary.</p>
+</li>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[you@uw&gt;]$</span> osg-build-globus --scratch &lt;PKG&gt;
+</code></pre></div>
+
+<p>Change <code>&lt;PKG&gt;</code>&gt; for the name of the package e.g. <code>globus-authz</code></p>
+</li>
+<li>
+<p>Commit - use a message like "Update to 8.29-1 from EPEL and merge OSG changes (SOFTWARE-2197)"</p>
+</li>
+<li>
+<p>Do a non-scratch build.</p>
+</li>
+</ol>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Create a yum <code>.repo</code> file similar to <code>osg-minefield</code> that installs from the <code>el?-globus</code> repos. Enable this and <code>osg-minefield</code>.</p>
+<p>EL7 example:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[globus]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">globus</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://koji.chtc.wisc.edu/mnt/koji/repos/el7-globus/latest/$basearch/</span>
+<span class="na">failovermethod</span><span class="o">=</span><span class="s">priority</span>
+<span class="na">priority</span><span class="o">=</span><span class="s">98</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+<span class="na">gpgcheck</span><span class="o">=</span><span class="s">0</span>
+<span class="na">gpgkey</span><span class="o">=</span><span class="s">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG</span>
+<span class="na">consider_as_osg</span><span class="o">=</span><span class="s">yes</span>
+</code></pre></div>
+
+<h2 id="merge">Merge<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h2>
+<h3 id="koji-matcarl_1">Koji (Mat/Carl)<a class="headerlink" href="#koji-matcarl_1" title="Permanent link">&para;</a></h3>
+<p>This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.</p>
+<ol>
+<li>Untag broken versions that we don't want to ship.</li>
+<li>Use <code>move-pkg</code>:<div class="codehilite"><pre><span></span><code><span class="gp">[you@host&gt;]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        osg-koji -q list-tagged <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-globus <span class="p">|</span> <span class="se">\</span>
+            awk <span class="s1">&#39;{print $1}&#39;</span> &gt; <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-tagged.txt<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+<span class="gp">#</span><span class="c1">## Check the txts if they look sane</span>
+<span class="gp">[you@host&gt;]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        xargs -a <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-tagged.txt <span class="se">\</span>
+            osg-koji move-pkg <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-globus <span class="se">\</span>
+                osg-3.3-<span class="si">${</span><span class="nv">el</span><span class="si">}</span>-development<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+</code></pre></div>
+
+</li>
+</ol>
+<h3 id="svn_1">SVN<a class="headerlink" href="#svn_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Merge from <code>trunk</code> to <code>branches/globus</code> first, to pick up any globus changes that may have happened in trunk.</li>
+<li>Merge from <code>branches/globus</code> to <code>trunk</code>.</li>
+<li>
+<p>Move <code>branches/globus</code> to <code>tags/globus-&lt;DATE&gt;</code>.</p>
+<p>Where <code>&lt;DATE&gt;</code> is the current date in the following format: YYYY-MM-DD, e.g. 2016-08-29</p>
+</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../repository-management/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Repository Management
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../resurrecting-epel-packages/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Resurrecting Epel Packages
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

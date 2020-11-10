@@ -1,0 +1,2112 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opensciencegrid.org/technology/documentation/writing-documentation/">
+      
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Writing Documentation - OSG Technology Area</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#writing-osg-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-header-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OSG Technology Area
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Writing Documentation
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OSG Technology Area
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Software
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Software" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Packaging
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Packaging" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/rpm-development-guide/" class="md-nav__link">
+      RPM Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/osg-build-tools/" class="md-nav__link">
+      OSG Build Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/quilt/" class="md-nav__link">
+      Using Quilt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/upcoming-to-main/" class="md-nav__link">
+      Upcoming to Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/koji-workflow/" class="md-nav__link">
+      Koji Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/create-vo-client/" class="md-nav__link">
+      Creating the VO Client Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/container-development-guide/" class="md-nav__link">
+      Container Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/repository-management/" class="md-nav__link">
+      Repository Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/globus-mass-update-procedure/" class="md-nav__link">
+      Globus Mass Update Procedure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/resurrecting-epel-packages/" class="md-nav__link">
+      Resurrecting Epel Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/koji-mass-rebuilds/" class="md-nav__link">
+      Koji Mass Rebuilds
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/development-process/" class="md-nav__link">
+      Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/git-software-development/" class="md-nav__link">
+      Git Software Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/ce-test-scaling/" class="md-nav__link">
+      CE Scale Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/ipv6-testing/" class="md-nav__link">
+      IPv6 Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/requesting-tokens/" class="md-nav__link">
+      How to Request Tokens
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-support/" class="md-nav__link">
+      Software Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/effort-tracking/" class="md-nav__link">
+      Effort Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/release-planning/" class="md-nav__link">
+      Release Planning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/new-team-member/" class="md-nav__link">
+      New Team Member
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Release
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Release" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Release
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-sw-release/" class="md-nav__link">
+      How to Cut a Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-data-release/" class="md-nav__link">
+      How to Cut a Data Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/announce-rft-packages/" class="md-nav__link">
+      Ready for Testing Announcements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/new-release-series/" class="md-nav__link">
+      New Release Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/old-release-removal/" class="md-nav__link">
+      Old Release Series Removal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/itb-testing/" class="md-nav__link">
+      ITB Prerelease Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/empty-pkgs/" class="md-nav__link">
+      Empty Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/acceptance-testing/" class="md-nav__link">
+      Acceptance Testing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Policy
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Policy" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Policy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gridftp-gsi-migration/" class="md-nav__link">
+      GridFTP and GSI Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/campus-cyberinfrastructure/" class="md-nav__link">
+      Campus Cyberinfrastructure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/cream-support/" class="md-nav__link">
+      CREAM-CE Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/release-series/" class="md-nav__link">
+      Release Series Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/globus-toolkit/" class="md-nav__link">
+      Globus Toolkit Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/external-oasis-repos/" class="md-nav__link">
+      OASIS Repository Mirroring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/flexible-release-model/" class="md-nav__link">
+      Flexible Release Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-release/" class="md-nav__link">
+      Software Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/container-release/" class="md-nav__link">
+      Container Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/community-testing/" class="md-nav__link">
+      Community Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-user/" class="md-nav__link">
+      Registering with the OSG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-admin/" class="md-nav__link">
+      Approving COManage Registrations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Documentation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Writing Documentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Writing Documentation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributing-content" class="md-nav__link">
+    Contributing Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-the-git-repository" class="md-nav__link">
+    Preparing the git repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previewing-the-pages" class="md-nav__link">
+    Previewing the pages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-content-changes" class="md-nav__link">
+    Making content changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-content-to-the-itb-advanced" class="md-nav__link">
+    Deploying content to the ITB (advanced)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-to-mkdocs-v1" class="md-nav__link">
+    Upgrading to MkDocs v1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-layout" class="md-nav__link">
+    Document Layout
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introductions" class="md-nav__link">
+    Introductions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guides" class="md-nav__link">
+    Installation guides
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-writing-procedural-instructions" class="md-nav__link">
+    Tips for Writing Procedural Instructions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reviewing-documentation/" class="md-nav__link">
+      Reviewing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../style-guide/" class="md-nav__link">
+      Markdown Style Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new-doc-area/" class="md-nav__link">
+      Creating a New Area
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Historical Transitions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Historical Transitions" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Historical Transitions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/service-migrations-spring-2018/" class="md-nav__link">
+      Service Migrations - Spring 2018
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gums-retire/" class="md-nav__link">
+      GUMS Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/bestman2-retire/" class="md-nav__link">
+      BeStMan2 Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/voms-admin-retire/" class="md-nav__link">
+      VOMS Admin Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/sha2-support/" class="md-nav__link">
+      SHA-2 Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../markdown-migration/" class="md-nav__link">
+      Migrating Documents to Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Meetings
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Meetings" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Meetings
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201109/" class="md-nav__link">
+      November 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201102/" class="md-nav__link">
+      November 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201026/" class="md-nav__link">
+      October 26, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201019/" class="md-nav__link">
+      October 19, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201012/" class="md-nav__link">
+      October 12, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201005/" class="md-nav__link">
+      October 5, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200928/" class="md-nav__link">
+      September 28, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200914/" class="md-nav__link">
+      September 14, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200824/" class="md-nav__link">
+      August 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200817/" class="md-nav__link">
+      August 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200810/" class="md-nav__link">
+      August 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200803/" class="md-nav__link">
+      August 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200727/" class="md-nav__link">
+      July 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200720/" class="md-nav__link">
+      July 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200713/" class="md-nav__link">
+      July 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200706/" class="md-nav__link">
+      July 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200629/" class="md-nav__link">
+      June 29, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200622/" class="md-nav__link">
+      June 22, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200615/" class="md-nav__link">
+      June 15, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200608/" class="md-nav__link">
+      June 8, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200601/" class="md-nav__link">
+      June 1, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200518/" class="md-nav__link">
+      May 18, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200511/" class="md-nav__link">
+      May 11, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200504/" class="md-nav__link">
+      May 4, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200427/" class="md-nav__link">
+      April 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200420/" class="md-nav__link">
+      April 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200413/" class="md-nav__link">
+      April 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200406/" class="md-nav__link">
+      April 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200330/" class="md-nav__link">
+      March 30, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200323/" class="md-nav__link">
+      March 23, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200316/" class="md-nav__link">
+      March 16, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200309/" class="md-nav__link">
+      March 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200302/" class="md-nav__link">
+      March 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200224/" class="md-nav__link">
+      February 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200217/" class="md-nav__link">
+      February 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200210/" class="md-nav__link">
+      February 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200203/" class="md-nav__link">
+      February 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200127/" class="md-nav__link">
+      January, 27 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200113/" class="md-nav__link">
+      January, 13 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200106/" class="md-nav__link">
+      January, 6 2020
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributing-content" class="md-nav__link">
+    Contributing Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-the-git-repository" class="md-nav__link">
+    Preparing the git repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previewing-the-pages" class="md-nav__link">
+    Previewing the pages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-content-changes" class="md-nav__link">
+    Making content changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-content-to-the-itb-advanced" class="md-nav__link">
+    Deploying content to the ITB (advanced)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-to-mkdocs-v1" class="md-nav__link">
+    Upgrading to MkDocs v1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-layout" class="md-nav__link">
+    Document Layout
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introductions" class="md-nav__link">
+    Introductions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-guides" class="md-nav__link">
+    Installation guides
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-writing-procedural-instructions" class="md-nav__link">
+    Tips for Writing Procedural Instructions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/opensciencegrid/technology/edit/master/docs/documentation/writing-documentation.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="writing-osg-documentation">Writing OSG Documentation<a class="headerlink" href="#writing-osg-documentation" title="Permanent link">&para;</a></h1>
+<p>Many OSG pages are written in <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a>, built using
+<a href="http://www.mkdocs.org/">MkDocs</a>, and served via <a href="https://pages.github.com/">GitHub Pages</a>.
+To <a href="#contributing-content">contribute content</a>, submit a pull request to the relevant GitHub repository,
+which are tagged with "mkdocs".</p>
+<ul>
+<li><a href="https://github.com/search?p=1&amp;q=topic%3Amkdocs+org%3Aopensciencegrid&amp;type=Repositories">List of documentation repos</a></li>
+</ul>
+<p>This document contains instructions, recommendations, and guidelines for writing OSG content.</p>
+<h2 id="contributing-content">Contributing Content<a class="headerlink" href="#contributing-content" title="Permanent link">&para;</a></h2>
+<p>To contribute minor content changes (e.g., fixing typos, changing a couple of sentences), we recommend using the
+<a href="https://help.github.com/articles/editing-files-in-your-repository/">GitHub web interface</a> to submit a pull request.</p>
+<p>To contribute major content changes to one of the above OSG areas, make sure you and the machine you'll be working on
+meet the following requirements:</p>
+<ul>
+<li>Have a <a href="https://github.com/join">Github account</a></li>
+<li>Installations of the following tools and languages:<ul>
+<li><a href="https://git-scm.com/">git</a></li>
+<li><a href="https://www.python.org/">Python</a></li>
+<li><a href="https://pip.pypa.io/en/stable/installing/">pip</a> (usually comes by default with Python 2 &gt;= 2.7.9 or Python 3 &gt;= 3.4)</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On macOS, the OS-distributed Python does not come with pip.
+Run the following to install it:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> sudo easy_install pip
+</code></pre></div>
+
+<p>pip will be installed in <code>/usr/local/bin/</code>, so you will need <code>/usr/local/bin</code> in your PATH.</p>
+</div>
+<h3 id="preparing-the-git-repository">Preparing the git repository<a class="headerlink" href="#preparing-the-git-repository" title="Permanent link">&para;</a></h3>
+<p>Before making any content changes, you will need to prepare a local git clone and set up a Python virtual environment:</p>
+<ol>
+<li><a href="https://help.github.com/articles/fork-a-repo/">Fork and clone</a> the GitHub repository that you'd like to contribute to</li>
+<li><code>cd</code> into the directory containing the local clone of your Github fork</li>
+<li>
+<p>Run the following command to update the contents of the <code>ci</code> directory:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git submodule update --init --recursive
+</code></pre></div>
+
+</li>
+<li>
+<p>Add the upstream Github repository as a <a href="https://help.github.com/articles/adding-a-remote/">remote</a>.
+   For example, if you are working on the User School 2018 pages:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git remote add upstream https://github.com/opensciencegrid/user-school-2018
+</code></pre></div>
+
+</li>
+<li>
+<p>Install the <code>virtualenv</code> package:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> pip install --user virtualenv
+</code></pre></div>
+
+</li>
+<li>
+<p>Set up your Python virtual environment:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> virtualenv env
+<span class="gp">$</span> env/bin/pip install -r ci/pip-requirements.txt
+</code></pre></div>
+
+</li>
+</ol>
+<h3 id="previewing-the-pages">Previewing the pages<a class="headerlink" href="#previewing-the-pages" title="Permanent link">&para;</a></h3>
+<p>To preview the pages, start a MkDocs development server.
+The development server will automatically detect any content changes and make them viewable in your browser.</p>
+<ol>
+<li>
+<p><code>cd</code> into the directory containing the local clone of your GitHub fork</p>
+</li>
+<li>
+<p>Start a MkDocs development server to preview your changes:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>src env/bin/mkdocs serve
+</code></pre></div>
+
+<p>To preview your changes visit <code>localhost:8000</code> in the browser of your choice.
+The server can be stopped with <code>Ctrl-C</code>.</p>
+</li>
+</ol>
+<h3 id="making-content-changes">Making content changes<a class="headerlink" href="#making-content-changes" title="Permanent link">&para;</a></h3>
+<p>To contribute content to the OSG, follow these steps to submit a pull request with your desired changes:</p>
+<ol>
+<li><code>cd</code> into the directory containing the local clone of your Github fork</li>
+<li>
+<p>Create a branch based on a branch from the <code>upstream</code> repository:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git fetch --all
+<span class="hll"><span class="gp">$</span> git checkout -b &lt;BRANCH NAME&gt; upstream/&lt;UPSTREAM BRANCH NAME&gt;
+</span></code></pre></div>
+
+<p>Replace <code>&lt;BRANCH NAME&gt;</code> with a name of your choice and <code>&lt;UPSTREAM BRANCH NAME&gt;</code> with a branch name from the
+<code>upstream</code> repository.
+For example, instructors for the 2018 User School should use the <code>materials</code> branch:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git checkout -b example_branch_name upstream/materials
+</code></pre></div>
+
+<p>If you do not know which <code>upstream</code> branch to use, pick <code>master</code>.</p>
+</li>
+<li>
+<p>Make your changes in the <code>docs/</code> directory of your local clone, following the <a href="../style-guide/">style guide</a>:</p>
+<ul>
+<li><strong>If you are making changes to an existing page:</strong><ol>
+<li>Open <code>mkdocs.yml</code> and find the location of the file relative to the <code>docs/</code> directory</li>
+<li>Make your changes to that file and move onto the next step</li>
+</ol>
+</li>
+<li>
+<p><strong>If you are contributing a new page:</strong></p>
+<ol>
+<li>Name the page. Page file names should be lowercase, <code>-</code> delimited, and concise but descriptive,
+   e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></li>
+<li>Place the page in the relevant sub-folder of the <code>docs/</code> directory.
+   If you are unsure of the appropriate location, note that in the description of the pull request.</li>
+<li>Add the document to the <code>nav:</code> section of <code>mkdocs.yml</code> in <a href="http://titlecase.com/">title case</a>,
+   e.g. <code>- Migrating Documents to Markdown: 'software/markdown-migration.md'</code></li>
+</ol>
+<p>!!!note
+       If <code>mkdocs.yml</code> contains does not contain a <code>nav:</code> section,
+       add the above to the <code>pages:</code> section instead.
+       This means that the repository is using an older version of MkDocs
+       and will need to be <a href="#upgrading-to-mkdocs-v1">upgraded to MkDocs v1</a></p>
+<ol>
+<li>If you are writing site administrator documentation, following the <a href="#document-layout">suggested document layout</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>If you haven't already, start a Mkdocs development server to <a href="#previewing-the-pages">preview your changes</a>.</p>
+</li>
+<li>
+<p>Continue making changes until you are satisfied with the preview, then stage your changes in git:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git add &lt;YOUR FILE&gt; &lt;YOUR 2nd FILE&gt;...&lt;YOUR Nth FILE&gt;
+</code></pre></div>
+
+<p>Where <code>&lt;YOUR * FILE&gt;</code> is any file that contains changes that you'd wish to make.
+If you are adding a new page, one of the files should be <code>mkdocs.yml</code>.</p>
+</li>
+<li>
+<p>Commit your changes and push them to your Github fork:</p>
+<div class="codehilite"><pre><span></span><code><span class="hll"><span class="gp">$</span> git commit -m <span class="s2">&quot;&lt;DESCRIPTIVE COMMIT MESSAGE&gt;&quot;</span>
+</span><span class="gp">$</span> git push origin
+</code></pre></div>
+
+<p>Where <code>&lt;DESCRIPTIVE COMMIT MESSAGE&gt;</code> is a meaningful short text that identifies the changes applied, it is a good
+practice, to concatenate the ticket number associated e.g. "Removing color macros (SOFTWARE-3739)"</p>
+</li>
+<li>
+<p>From your Github fork, <a href="https://help.github.com/articles/creating-a-pull-request/">submit a pull request</a></p>
+</li>
+</ol>
+<h3 id="deploying-content-to-the-itb-advanced">Deploying content to the ITB (advanced)<a class="headerlink" href="#deploying-content-to-the-itb-advanced" title="Permanent link">&para;</a></h3>
+<p>If you are a member of the OSG software and release team, you can preview large changes to the
+<a href="https://www.opensciencegrid.org/docs-itb/">ITB docs</a> or <a href="https://www.opensciencegrid.org/technology-itb/">ITB technology</a>
+by pushing a branch that starts with an <code>itb.</code> prefix to the <code>opensciencegrid/docs</code> repo.
+For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git remote add upstream https://github.com/opensciencegrid/docs.git
+<span class="gp">$</span> git checkout new_docs
+<span class="gp">$</span> git push upstream new_docs:itb.new_docs
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since there is only one ITB docs area, simultaneous new commits to different <code>itb.*</code> branches will overwrite each other's changes. To re-deploy your changes, find your <a href="https://travis-ci.org/opensciencegrid/docs/branches">Travis-CI build</a> and restart it <strong>BUT</strong> coordinate with the author of the other commits to avoid conflicts.</p>
+</div>
+<h2 id="upgrading-to-mkdocs-v1">Upgrading to MkDocs v1<a class="headerlink" href="#upgrading-to-mkdocs-v1" title="Permanent link">&para;</a></h2>
+<p>The version of MkDocs used to generate documentation pages is determined by the submodule of <code>osg-ci-scripts</code>
+found in the <code>ci</code> directory.
+Most current documentation areas use MkDocs 0.17.5.
+However, we are planning to upgrade each repo to use MkDocs 1.0.4 or newer,
+which contains additional functionality and bug fixes.</p>
+<p>Before upgrading, you must fix the following incompatibilities:</p>
+<ul>
+<li>
+<p>Change the <code>pages:</code> section of <code>mkdocs.yml</code> to a <code>nav:</code> section.
+  The section contents are identical; only the name is changing.</p>
+</li>
+<li>
+<p>Update all of the links in the documents as follows:</p>
+</li>
+<li>Ensure links end in <code>.md</code></li>
+<li>Ensure links are document-relative, not site-relative (e.g. <code>../software/development-process</code>
+    instead of <code>/software/development-process</code></li>
+</ul>
+<p>Once these are done, use the following procedure to update:</p>
+<ol>
+<li>
+<p>In the repository you are updating, create an itb branch from master, e.g.
+   <code>git checkout -b itb.mkdocsv1 master</code></p>
+</li>
+<li>
+<p>cd into the <code>ci</code> directory in the root of your repository</p>
+</li>
+<li>
+<p><code>git fetch</code> to get all changes from the origin</p>
+</li>
+<li>
+<p><code>git checkout mkdocs-v1</code> to switch to the branch</p>
+</li>
+<li>
+<p>cd into the root of your repository</p>
+</li>
+<li>
+<p><code>git add ci</code>
+   <code>git commit</code>
+   to store your changes</p>
+</li>
+<li>
+<p>In your virtualenv, run
+   <code>pip install --upgrade -r ci/pip-requirements.txt</code></p>
+</li>
+<li>
+<p>Run mkdocs to <a href="#previewing-the-pages">preview your changes</a>;
+   be sure to verify that links work as expected</p>
+</li>
+<li>
+<p>Follow the <a href="#deploying-content-to-the-itb-advanced">ITB deployment instructions</a>
+   to preview the changes on the website</p>
+</li>
+<li>
+<p>Create a pull request against <code>master</code> for your change</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you require assistance with the transition, don't hesitate to email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#104;&#101;&#108;&#112;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a></p>
+</div>
+<h2 id="document-layout">Document Layout<a class="headerlink" href="#document-layout" title="Permanent link">&para;</a></h2>
+<p>This section contains suggested layouts of externally-facing, <a href="https://github.com/opensciencegrid/docs/">site administrator documentation</a>.
+The introduction is the only layout requirement for documents except for installation guides.</p>
+<h3 id="introductions">Introductions<a class="headerlink" href="#introductions" title="Permanent link">&para;</a></h3>
+<p>All documents should start with an introduction that explains <strong>what</strong> the document contains, <strong>what</strong> the product does,
+and <strong>why</strong> someone may want to use it.
+In the past, document introductions were included in <code>About this...</code> sections due to the layout of the table of contents.
+Since the table of contents is included in the sidebar this is unnecessary and introduction content should go directly
+below the title heading without any second-level headings.</p>
+<p>The <a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce">HTCondor-CE installation guide</a>
+is an example that meet all of the above criteria.</p>
+<h3 id="installation-guides">Installation guides<a class="headerlink" href="#installation-guides" title="Permanent link">&para;</a></h3>
+<p>In addition to the introduction above, installation documents should have the following sections:</p>
+<ul>
+<li><strong>Before Starting:</strong> This section should contain information for any prepatory work that the site administrator should
+  do or consider before proceeding with the installation
+  (<a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#before-starting">example</a>).</li>
+<li><strong>Installation:</strong> Procedural instructions that tell the user how to install the software
+  (<a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-htcondor-ce">example</a>)</li>
+<li><strong>Validation:</strong> How does the user make sure their installation is functional?</li>
+<li><strong>Help:</strong> Often just a link to the relevant <a href="http://www.opensciencegrid.org/docs/common/help/">help document</a> as well
+  as contact information for specific support groups, if applicable.</li>
+</ul>
+<p>Optionally, the following sections should be included as necessary.</p>
+<ul>
+<li><strong>Overview:</strong> if the introduction becomes large and unwieldy, extract the details of <strong>what</strong> the product does into an
+  overview section</li>
+<li><strong>Configuration:</strong> required configuration steps (<a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#configuring-htcondor-ce">example</a>)
+  as well as a sub-section for optional configurations.
+  For long optional configuration sections, consider creating alist of contents at the top of the sub-section
+  (<a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#optional-configuration">example</a>).</li>
+<li><strong>Troubleshooting:</strong> common issues that users encounter and their fixes</li>
+<li><strong>Reference:</strong> Details about configuration and log files, unix users, certificates, networking, links to relevant
+  upstream documentation, etc.
+  (<a href="https://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#reference">example</a>)</li>
+</ul>
+<p>If any of the sections become too large, consider separating them out and linking to the new documents
+(<a href="http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#troubleshooting-htcondor-ce">example</a>).</p>
+<h2 id="tips-for-writing-procedural-instructions">Tips for Writing Procedural Instructions<a class="headerlink" href="#tips-for-writing-procedural-instructions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Title the procedure with the user goal, usually starting with a gerund; e.g.:</p>
+<p><strong>Installing the Frobnosticator</strong></p>
+</li>
+<li>
+<p>Number all steps (as opposed to using bullets)</p>
+</li>
+<li>
+<p>List steps in order in which they are performed</p>
+</li>
+<li>
+<p>Each step should begin with a single-line instruction in plain English, in command form; e.g.:</p>
+<ol>
+<li>Make sure that the Frobnosticator configuration file is world-writable</li>
+</ol>
+</li>
+<li>
+<p>If the means of carrying out the instruction is unclear or complex, include clarification, ideally in the form of a
+  working example; e.g.:
+  <code>chmod a+x /usr/share/frobnosticator/frob.conf</code></p>
+</li>
+<li>
+<p>Put clarifying information in separate paragraphs within the step</p>
+</li>
+<li>
+<p>Put critical information about the <strong>whole</strong> procedure in one or more paragraphs before the numbered steps</p>
+</li>
+<li>
+<p>Put supplemental information about the <strong>whole</strong> procedure in one or more paragraphs after the numbered steps</p>
+</li>
+<li>
+<p>Avoid pronouns when writing technical articles or documentation e.g., <code>install foo</code> rather than <code>install it</code>.</p>
+</li>
+<li>
+<p>Avoid superfluous statements like <code>you will want</code>, <code>you want</code>, <code>you should</code> e.g., <code>install foo</code> rather than
+  <code>you will want to install foo</code>.</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../policy/comanage-instructions-admin/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Approving COManage Registrations
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../reviewing-documentation/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Reviewing Documentation
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1953 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opensciencegrid.org/technology/policy/software-support/">
+      
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Software Support - OSG Technology Area</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-support" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-header-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OSG Technology Area
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Software Support
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OSG Technology Area
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Software
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Software" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Packaging
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Packaging" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/rpm-development-guide/" class="md-nav__link">
+      RPM Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/osg-build-tools/" class="md-nav__link">
+      OSG Build Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/quilt/" class="md-nav__link">
+      Using Quilt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/upcoming-to-main/" class="md-nav__link">
+      Upcoming to Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/koji-workflow/" class="md-nav__link">
+      Koji Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/create-vo-client/" class="md-nav__link">
+      Creating the VO Client Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/container-development-guide/" class="md-nav__link">
+      Container Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/repository-management/" class="md-nav__link">
+      Repository Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/globus-mass-update-procedure/" class="md-nav__link">
+      Globus Mass Update Procedure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/resurrecting-epel-packages/" class="md-nav__link">
+      Resurrecting Epel Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/koji-mass-rebuilds/" class="md-nav__link">
+      Koji Mass Rebuilds
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/development-process/" class="md-nav__link">
+      Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/git-software-development/" class="md-nav__link">
+      Git Software Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/ce-test-scaling/" class="md-nav__link">
+      CE Scale Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/ipv6-testing/" class="md-nav__link">
+      IPv6 Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/requesting-tokens/" class="md-nav__link">
+      How to Request Tokens
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Software Support
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Software Support
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triage-duty" class="md-nav__link">
+    Triage Duty
+  </a>
+  
+    <nav class="md-nav" aria-label="Triage Duty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-triage-calendar" class="md-nav__link">
+    Updating the triage calendar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ticket-systems" class="md-nav__link">
+    Ticket Systems
+  </a>
+  
+    <nav class="md-nav" aria-label="Ticket Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-email" class="md-nav__link">
+    Direct Email
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freshdesk" class="md-nav__link">
+    Freshdesk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jira" class="md-nav__link">
+    JIRA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/effort-tracking/" class="md-nav__link">
+      Effort Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/release-planning/" class="md-nav__link">
+      Release Planning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../software/new-team-member/" class="md-nav__link">
+      New Team Member
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Release
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Release" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Release
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-sw-release/" class="md-nav__link">
+      How to Cut a Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-data-release/" class="md-nav__link">
+      How to Cut a Data Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/announce-rft-packages/" class="md-nav__link">
+      Ready for Testing Announcements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/new-release-series/" class="md-nav__link">
+      New Release Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/old-release-removal/" class="md-nav__link">
+      Old Release Series Removal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/itb-testing/" class="md-nav__link">
+      ITB Prerelease Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/empty-pkgs/" class="md-nav__link">
+      Empty Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/acceptance-testing/" class="md-nav__link">
+      Acceptance Testing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Policy
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Policy" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Policy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gridftp-gsi-migration/" class="md-nav__link">
+      GridFTP and GSI Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../campus-cyberinfrastructure/" class="md-nav__link">
+      Campus Cyberinfrastructure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cream-support/" class="md-nav__link">
+      CREAM-CE Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../release-series/" class="md-nav__link">
+      Release Series Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../globus-toolkit/" class="md-nav__link">
+      Globus Toolkit Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../external-oasis-repos/" class="md-nav__link">
+      OASIS Repository Mirroring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexible-release-model/" class="md-nav__link">
+      Flexible Release Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../software-release/" class="md-nav__link">
+      Software Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container-release/" class="md-nav__link">
+      Container Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../community-testing/" class="md-nav__link">
+      Community Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comanage-instructions-user/" class="md-nav__link">
+      Registering with the OSG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comanage-instructions-admin/" class="md-nav__link">
+      Approving COManage Registrations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Documentation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/writing-documentation/" class="md-nav__link">
+      Writing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/reviewing-documentation/" class="md-nav__link">
+      Reviewing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/style-guide/" class="md-nav__link">
+      Markdown Style Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/new-doc-area/" class="md-nav__link">
+      Creating a New Area
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Historical Transitions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Historical Transitions" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Historical Transitions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../service-migrations-spring-2018/" class="md-nav__link">
+      Service Migrations - Spring 2018
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gums-retire/" class="md-nav__link">
+      GUMS Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bestman2-retire/" class="md-nav__link">
+      BeStMan2 Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../voms-admin-retire/" class="md-nav__link">
+      VOMS Admin Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/sha2-support/" class="md-nav__link">
+      SHA-2 Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/markdown-migration/" class="md-nav__link">
+      Migrating Documents to Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Meetings
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Meetings" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Meetings
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201109/" class="md-nav__link">
+      November 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201102/" class="md-nav__link">
+      November 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201026/" class="md-nav__link">
+      October 26, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201019/" class="md-nav__link">
+      October 19, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201012/" class="md-nav__link">
+      October 12, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201005/" class="md-nav__link">
+      October 5, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200928/" class="md-nav__link">
+      September 28, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200914/" class="md-nav__link">
+      September 14, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200824/" class="md-nav__link">
+      August 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200817/" class="md-nav__link">
+      August 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200810/" class="md-nav__link">
+      August 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200803/" class="md-nav__link">
+      August 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200727/" class="md-nav__link">
+      July 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200720/" class="md-nav__link">
+      July 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200713/" class="md-nav__link">
+      July 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200706/" class="md-nav__link">
+      July 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200629/" class="md-nav__link">
+      June 29, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200622/" class="md-nav__link">
+      June 22, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200615/" class="md-nav__link">
+      June 15, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200608/" class="md-nav__link">
+      June 8, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200601/" class="md-nav__link">
+      June 1, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200518/" class="md-nav__link">
+      May 18, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200511/" class="md-nav__link">
+      May 11, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200504/" class="md-nav__link">
+      May 4, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200427/" class="md-nav__link">
+      April 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200420/" class="md-nav__link">
+      April 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200413/" class="md-nav__link">
+      April 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200406/" class="md-nav__link">
+      April 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200330/" class="md-nav__link">
+      March 30, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200323/" class="md-nav__link">
+      March 23, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200316/" class="md-nav__link">
+      March 16, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200309/" class="md-nav__link">
+      March 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200302/" class="md-nav__link">
+      March 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200224/" class="md-nav__link">
+      February 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200217/" class="md-nav__link">
+      February 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200210/" class="md-nav__link">
+      February 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200203/" class="md-nav__link">
+      February 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200127/" class="md-nav__link">
+      January, 27 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200113/" class="md-nav__link">
+      January, 13 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200106/" class="md-nav__link">
+      January, 6 2020
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triage-duty" class="md-nav__link">
+    Triage Duty
+  </a>
+  
+    <nav class="md-nav" aria-label="Triage Duty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-triage-calendar" class="md-nav__link">
+    Updating the triage calendar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ticket-systems" class="md-nav__link">
+    Ticket Systems
+  </a>
+  
+    <nav class="md-nav" aria-label="Ticket Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-email" class="md-nav__link">
+    Direct Email
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freshdesk" class="md-nav__link">
+    Freshdesk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jira" class="md-nav__link">
+    JIRA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/software-support.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="software-support">Software Support<a class="headerlink" href="#software-support" title="Permanent link">&para;</a></h1>
+<p>This document describes how OSG Technology Team members should support the OSG Software Stack, including triage duty
+responsibilities and when to transition from direct support inquiries to a ticketing system such as Freshdesk or JIRA.</p>
+<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
+<p>When providing support for our users, remember the following:</p>
+<ul>
+<li>We are a small community and we need to take good care of our users.
+    Please be friendly and patient even when the user is frustrated or lacking in knowledge.</li>
+<li>Always sign your ticket with your full name, so people know who is responding.
+    If it's easy for you, include a signature at the bottom of your response.</li>
+<li>If you need to collect information about a problematic host, ask users to run <code>osg-system-profiler</code>.
+    It can shorten the number of times you ask for information because it collects quite a bit for you.</li>
+<li>If you run across a problem that has a chance of being hit by other users:<ul>
+<li>Is there a bug we should fix in the software?
+    Or something we could improve in the software?</li>
+<li>Is there a way to improve our documentation?</li>
+<li>Can you extend our troubleshooting documents to help people track this down more quickly?
+    Consider the troubleshooting documents to be as much for us as for our users.</li>
+<li>Is this something that other Technology Team members should be aware of?
+    Note it during the support discussion during the weekly OSG Technology meeting, or email the Technology Team if
+    it seems more urgent.</li>
+</ul>
+</li>
+</ul>
+<h2 id="triage-duty">Triage Duty<a class="headerlink" href="#triage-duty" title="Permanent link">&para;</a></h2>
+<p>The OSG uses <a href="#freshdesk">Freshdesk</a> to track support issues so you will need a Freshworks account with agent privileges
+(contact the OSG Software Team Manager for access).</p>
+<div class="admonition tip">
+<p class="admonition-title">Logging in as an agent</p>
+<p>Don't enter your credentials directly into the <a href="https://support.opensciencegrid.org/support/login">login page</a>!
+Click the agent login link instead so that you don't have to enter your credentials twice.</p>
+</div>
+<p>During normal work hours, the OSG Technology Team splits responsibilities for managing incoming OSG Software support
+requests based upon a <a href="https://github.com/opensciencegrid/osg-triage-assignments/blob/master/rotation.txt">weekly rotation</a>.
+If you are on triage duty, your responsibilities are as follows:</p>
+<ul>
+<li>
+<p><strong>Watch for new software tickets:</strong> review the
+    <a href="https://support.opensciencegrid.org/a/tickets/filters/5000319518">Unresolved Software Tickets</a> and
+    <a href="https://support.opensciencegrid.org/a/tickets/filters/5000322056">All Unassigned Tickets</a> filters at least twice
+    daily for new OSG Software-related tickets.
+    For any such unassigned tickets, assign it as follows:</p>
+<ul>
+<li><em>If you can handle an incoming ticket,</em> assign it to yourself.
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.</li>
+<li><em>If you cannot handle an incoming ticket,</em> collect initial details such as relevant versions, logs, etc., and
+    assign the ticket to the most appropriate Technology Team member.
+    Where appropriate, CC people from other OSG teams, sites, or VOs.</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">New sites interested in joining the OSG</p>
+<p>For support requests inquiring about joining the OSG, assign the ticket to the Research Faciliation lead and add
+the Software Team manager as a watcher.</p>
+</div>
+</li>
+<li>
+<p><strong>Review assigned software tickets.</strong>
+    For tickets that are not being handled in a timely fashion (pay special attention to <code>OVERDUE</code> and <code>Customer
+    Responded</code> tickets):</p>
+<ul>
+<li><em>If the ticket is pending and the assignee has not responded in &gt; 2 business days,</em>
+    notify the ticket assignee via private note that they need to revisit the ticket.</li>
+<li><em>If the ticket is waiting on the customer or a third party and they have not responded in &gt; 1 week,</em>
+    reply to the ticket asking if they've had the time to review the Technology Team's latest response(s).</li>
+<li><em>If the ticket was opened by the customer, is waiting on the customer and they have not responded in &gt; 2 weeks,</em>
+    close the ticket and let the customer know that they can re-open it by responding whenever they're ready to
+    tackle the issue again.</li>
+</ul>
+</li>
+<li><strong>Re-assign non-software tickets:</strong>
+    Tickets that have been mistakenly assigned to the Software group should be re-assigned to the appropriate group.</li>
+<li><strong>Merge duplicate tickets:</strong>
+   Responses to a ticket sometimes results in creation of a new ticket; these new tickets should be merged into the
+   original ticket.
+   See <a href="https://support.freshdesk.com/support/solutions/articles/80180-merging-two-or-more-tickets-together">this documentation</a>.</li>
+<li><strong>Clean up spam:</strong>
+    Mark the ticket as spam and block the user.
+    See <a href="https://support.freshdesk.com/support/solutions/articles/217539-spam-and-trash">this documentation</a>.</li>
+<li><strong>Clean up automated replies:</strong>
+    announcements are often sent with <code>Reply-to: help@opensciencegrid.org</code> so automated replies (e.g. Out of Office,
+    mailing list moderation) will generate tickets.
+    These tickets can be closed.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>If you have questions concerning a ticket, consult the OSG Software Team Manager and/or the <code>#software</code> channel in
+the OSG Slack.</p>
+</div>
+<h3 id="updating-the-triage-calendar">Updating the triage calendar<a class="headerlink" href="#updating-the-triage-calendar" title="Permanent link">&para;</a></h3>
+<p>The current triage duty schedule can be found in the OSG Software calendar, hosted on Tim Cartwright’s Google account.
+If you need privileges to edit the calendar, ask the OSG Software Team Manager.
+To update the triage duty schedule:</p>
+<ol>
+<li>Clone the <a href="https://github.com/opensciencegrid/osg-triage-assignments">git repo</a></li>
+<li>
+<p>Generate next rotation:</p>
+<div class="codehilite"><pre><span></span><code>./triage.py --generateNextRotation &gt; rotation.txt
+</code></pre></div>
+
+</li>
+<li>
+<p>Check and update assignments according to team member outages</p>
+</li>
+<li>Load triage assignments into Google Calendar:<div class="codehilite"><pre><span></span><code>./triage.py --load rotation.txt
+</code></pre></div>
+
+</li>
+</ol>
+<p>To subscribe to this calendar in your calendar program, use the iCal URL:
+<code>https://www.google.com/calendar/ical/h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com/public/basic.ics</code></p>
+<iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+<h2 id="ticket-systems">Ticket Systems<a class="headerlink" href="#ticket-systems" title="Permanent link">&para;</a></h2>
+<p>The OSG Technology Team uses the <a href="https://support.opensciencegrid.org/">Freshdesk</a> and
+<a href="https://jira.opensciencegrid.org">JIRA</a> ticketing systems to track support and all other work, respectively.
+This section describes the differences between the two as well as some OSG Technology Freshdesk conventions.</p>
+<h3 id="direct-email">Direct Email<a class="headerlink" href="#direct-email" title="Permanent link">&para;</a></h3>
+<p>Sometimes users may email you directly with support inquiries.
+If someone emails you directly for support, you have the choice of when to move it to a ticket.
+The recommended criteria are:</p>
+<ul>
+<li>If it's easy to handle and you can definitely do it yourself, leave it in email.</li>
+<li>If there's a chance that you can't do it in a timely fashion, turn it into a ticket.</li>
+<li>If there's a chance that you might lose track of the email, turn it into a ticket.</li>
+<li>If there's a chance that you might need help from others, turn it into a ticket.</li>
+<li>If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into
+    a ticket.</li>
+</ul>
+<h3 id="freshdesk">Freshdesk<a class="headerlink" href="#freshdesk" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Freshdesk access</p>
+<p>The OSG uses <a href="#freshdesk">Freshdesk</a> to track support issues so you will need a Freshworks account with agent
+privileges (contact the OSG Software Team Manager for access).</p>
+</div>
+<p>Freshdesk tickets are for user support, i.e. this is where we help users debug, understand their problems, etc.
+When replying to or otherwise updating a Freshdesk ticket, there are a few things to note:</p>
+<ul>
+<li>Freshdesk auto-populates the contact's name when replying through the web interface, e.g. <code>Hi Brian</code>.
+    Ensure that the name is correct, especially if there are multiple parties involved in a single ticket.
+    If the auto-populated name looks incorrect, e.g. <code>Hi blin.wisc</code>, fix the contact's First and Last name fields.</li>
+<li>
+<p>Make sure to set the state of the ticket, which is helpful for those on triage:</p>
+<table>
+<thead>
+<tr>
+<th><strong>State</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pending</td>
+<td>Assignee is responsible for next actions</td>
+</tr>
+<tr>
+<td>Waiting on Customer</td>
+<td>Assignee needs the reporter to respond</td>
+</tr>
+<tr>
+<td>Waiting on Third Party</td>
+<td>Assignee needs a response from a CC</td>
+</tr>
+<tr>
+<td>Closed</td>
+<td>Support is complete or the user is unresponsive. <a href="#triage-duty">See above</a>.</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>Ticket has not yet been assigned (initial ticket state)</td>
+</tr>
+<tr>
+<td>Resolved</td>
+<td><strong>DO NOT USE</strong>. Similar to <code>Closed</code> but sends a user survey.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>If actionable Technology Team tasks arise from a Freshdesk ticket, <a href="#jira">JIRA</a> ticket(s) should be created to track
+that work.
+Resultant JIRA tickets should include a link to the original Freshdesk ticket, a description of the problem or feature
+request, and a proposed solution or implementation.</p>
+<p>After the relevant JIRA tickets have been created, ask the user if they would be ok with tracking the issue via JIRA. 
+If they say yes, close the Freshdesk ticket.</p>
+<h3 id="jira">JIRA<a class="headerlink" href="#jira" title="Permanent link">&para;</a></h3>
+<p>JIRA is for tracking our work and it's meant for internal usage, not for user support.
+In general, users should not ask for support via JIRA.
+A single user support ticket might result in zero, one, or multiple JIRA tickets.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../software/requesting-tokens/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                How to Request Tokens
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../software/effort-tracking/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Effort Tracking
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

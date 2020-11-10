@@ -1,0 +1,1899 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opensciencegrid.org/technology/software/koji-mass-rebuilds/">
+      
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Koji Mass Rebuilds - OSG Technology Area</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mass-rpm-rebuilds-for-a-new-build-target-in-koji" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-header-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OSG Technology Area
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Koji Mass Rebuilds
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensciencegrid.org/technology/" title="OSG Technology Area" class="md-nav__button md-logo" aria-label="OSG Technology Area">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OSG Technology Area
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/opensciencegrid/technology/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Software
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Software" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Packaging
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Packaging" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rpm-development-guide/" class="md-nav__link">
+      RPM Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../osg-build-tools/" class="md-nav__link">
+      OSG Build Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../quilt/" class="md-nav__link">
+      Using Quilt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../upcoming-to-main/" class="md-nav__link">
+      Upcoming to Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../koji-workflow/" class="md-nav__link">
+      Koji Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../create-vo-client/" class="md-nav__link">
+      Creating the VO Client Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container-development-guide/" class="md-nav__link">
+      Container Development Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../repository-management/" class="md-nav__link">
+      Repository Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../globus-mass-update-procedure/" class="md-nav__link">
+      Globus Mass Update Procedure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../resurrecting-epel-packages/" class="md-nav__link">
+      Resurrecting Epel Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Koji Mass Rebuilds
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Koji Mass Rebuilds
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-rhel-version-vs-new-osg-series" class="md-nav__link">
+    New RHEL version vs new OSG series
+  </a>
+  
+    <nav class="md-nav" aria-label="New RHEL version vs new OSG series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-rhel-version" class="md-nav__link">
+    New RHEL version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-osg-series" class="md-nav__link">
+    New OSG series
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doing-scratch-builds-of-everything-first" class="md-nav__link">
+    Doing scratch builds of everything first
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-for-calculating-build-dependencies" class="md-nav__link">
+    Options for calculating build dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-computing-predictive-vs-just-in-time" class="md-nav__link">
+    Pre-computing (predictive) vs just-in-time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-list-closure-pruning" class="md-nav__link">
+    Package list closure, pruning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-recommendations" class="md-nav__link">
+    Proposal / Recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposal / Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-a-new-osg-series" class="md-nav__link">
+    For a new OSG series:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-a-new-rhel-version" class="md-nav__link">
+    For a new RHEL version:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Development
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Development" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../development-process/" class="md-nav__link">
+      Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git-software-development/" class="md-nav__link">
+      Git Software Development Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ce-test-scaling/" class="md-nav__link">
+      CE Scale Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ipv6-testing/" class="md-nav__link">
+      IPv6 Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../requesting-tokens/" class="md-nav__link">
+      How to Request Tokens
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-support/" class="md-nav__link">
+      Software Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../effort-tracking/" class="md-nav__link">
+      Effort Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../release-planning/" class="md-nav__link">
+      Release Planning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new-team-member/" class="md-nav__link">
+      New Team Member
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Release
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Release" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Release
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-sw-release/" class="md-nav__link">
+      How to Cut a Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/cut-data-release/" class="md-nav__link">
+      How to Cut a Data Release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/announce-rft-packages/" class="md-nav__link">
+      Ready for Testing Announcements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/new-release-series/" class="md-nav__link">
+      New Release Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/old-release-removal/" class="md-nav__link">
+      Old Release Series Removal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/itb-testing/" class="md-nav__link">
+      ITB Prerelease Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/empty-pkgs/" class="md-nav__link">
+      Empty Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/acceptance-testing/" class="md-nav__link">
+      Acceptance Testing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Policy
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Policy" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Policy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gridftp-gsi-migration/" class="md-nav__link">
+      GridFTP and GSI Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/campus-cyberinfrastructure/" class="md-nav__link">
+      Campus Cyberinfrastructure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/cream-support/" class="md-nav__link">
+      CREAM-CE Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/release-series/" class="md-nav__link">
+      Release Series Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/globus-toolkit/" class="md-nav__link">
+      Globus Toolkit Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/external-oasis-repos/" class="md-nav__link">
+      OASIS Repository Mirroring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/flexible-release-model/" class="md-nav__link">
+      Flexible Release Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/software-release/" class="md-nav__link">
+      Software Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/container-release/" class="md-nav__link">
+      Container Release Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/community-testing/" class="md-nav__link">
+      Community Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-user/" class="md-nav__link">
+      Registering with the OSG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/comanage-instructions-admin/" class="md-nav__link">
+      Approving COManage Registrations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Documentation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/writing-documentation/" class="md-nav__link">
+      Writing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/reviewing-documentation/" class="md-nav__link">
+      Reviewing Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/style-guide/" class="md-nav__link">
+      Markdown Style Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/new-doc-area/" class="md-nav__link">
+      Creating a New Area
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Historical Transitions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Historical Transitions" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Historical Transitions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/service-migrations-spring-2018/" class="md-nav__link">
+      Service Migrations - Spring 2018
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/gums-retire/" class="md-nav__link">
+      GUMS Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/bestman2-retire/" class="md-nav__link">
+      BeStMan2 Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policy/voms-admin-retire/" class="md-nav__link">
+      VOMS Admin Retirement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/sha2-support/" class="md-nav__link">
+      SHA-2 Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/markdown-migration/" class="md-nav__link">
+      Migrating Documents to Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Meetings
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Meetings" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Meetings
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201109/" class="md-nav__link">
+      November 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201102/" class="md-nav__link">
+      November 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201026/" class="md-nav__link">
+      October 26, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201019/" class="md-nav__link">
+      October 19, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201012/" class="md-nav__link">
+      October 12, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20201005/" class="md-nav__link">
+      October 5, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200928/" class="md-nav__link">
+      September 28, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200914/" class="md-nav__link">
+      September 14, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200824/" class="md-nav__link">
+      August 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200817/" class="md-nav__link">
+      August 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200810/" class="md-nav__link">
+      August 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200803/" class="md-nav__link">
+      August 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200727/" class="md-nav__link">
+      July 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200720/" class="md-nav__link">
+      July 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200713/" class="md-nav__link">
+      July 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200706/" class="md-nav__link">
+      July 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200629/" class="md-nav__link">
+      June 29, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200622/" class="md-nav__link">
+      June 22, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200615/" class="md-nav__link">
+      June 15, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200608/" class="md-nav__link">
+      June 8, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200601/" class="md-nav__link">
+      June 1, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200518/" class="md-nav__link">
+      May 18, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200511/" class="md-nav__link">
+      May 11, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200504/" class="md-nav__link">
+      May 4, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200427/" class="md-nav__link">
+      April 27, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200420/" class="md-nav__link">
+      April 20, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200413/" class="md-nav__link">
+      April 13, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200406/" class="md-nav__link">
+      April 6, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200330/" class="md-nav__link">
+      March 30, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200323/" class="md-nav__link">
+      March 23, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200316/" class="md-nav__link">
+      March 16, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200309/" class="md-nav__link">
+      March 9, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200302/" class="md-nav__link">
+      March 2, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200224/" class="md-nav__link">
+      February 24, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200217/" class="md-nav__link">
+      February 17, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200210/" class="md-nav__link">
+      February 10, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200203/" class="md-nav__link">
+      February 3, 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200127/" class="md-nav__link">
+      January, 27 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200113/" class="md-nav__link">
+      January, 13 2020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../meetings/2020/TechArea20200106/" class="md-nav__link">
+      January, 6 2020
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-rhel-version-vs-new-osg-series" class="md-nav__link">
+    New RHEL version vs new OSG series
+  </a>
+  
+    <nav class="md-nav" aria-label="New RHEL version vs new OSG series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-rhel-version" class="md-nav__link">
+    New RHEL version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-osg-series" class="md-nav__link">
+    New OSG series
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doing-scratch-builds-of-everything-first" class="md-nav__link">
+    Doing scratch builds of everything first
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-for-calculating-build-dependencies" class="md-nav__link">
+    Options for calculating build dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-computing-predictive-vs-just-in-time" class="md-nav__link">
+    Pre-computing (predictive) vs just-in-time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-list-closure-pruning" class="md-nav__link">
+    Package list closure, pruning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-recommendations" class="md-nav__link">
+    Proposal / Recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposal / Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-a-new-osg-series" class="md-nav__link">
+    For a new OSG series:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-a-new-rhel-version" class="md-nav__link">
+    For a new RHEL version:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/koji-mass-rebuilds.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="mass-rpm-rebuilds-for-a-new-build-target-in-koji">Mass RPM Rebuilds for a new Build Target in Koji<a class="headerlink" href="#mass-rpm-rebuilds-for-a-new-build-target-in-koji" title="Permanent link">&para;</a></h1>
+<p>Whenever we move to a new OSG series (OSG 3.3) and/or a new RHEL version (EL7), we want to make new builds for all of our packages in the new koji build target (osg-3.3-el7). Due to tricky build dependencies and unexpected build failures, this can be a messy task; and in the past we have gone about it in an ad-hoc manner.</p>
+<p>This document will discuss some of the aspects of the task and issues involved, some possible approaches, and ultimately a proposal for a general tool or procedure for doing our mass rebuilds.</p>
+<h2 id="new-rhel-version-vs-new-osg-series">New RHEL version vs new OSG series<a class="headerlink" href="#new-rhel-version-vs-new-osg-series" title="Permanent link">&para;</a></h2>
+<h3 id="new-rhel-version">New RHEL version<a class="headerlink" href="#new-rhel-version" title="Permanent link">&para;</a></h3>
+<p>For a new RHEL version, we start with no osg packages to build against, so we are forced to build things in dependency order. Figuring out the dependency order is possibly the most difficult (or interesting) part of doing mass rebuilds -- more on that later.</p>
+<h3 id="new-osg-series">New OSG series<a class="headerlink" href="#new-osg-series" title="Permanent link">&para;</a></h3>
+<p>For a new OSG series within an existing RHEL version, we have more options. While it's possible to "start from scratch" the same way we would with a new RHEL version and build everything in dependency order, this is not really necessary if we take advantage of existing builds from the previous series.</p>
+<p>A prior step is to determine the package list for the new series -- this will be some combination of Upcoming and the current release series, minus any packages pruned for the new series. This should also be reflected in the new trunk packaging area. All the current builds for packages in that list (from upcoming + current series) can be tagged into the new *-development (or *-build) repos. This should make all of the build dependencies available for mass rebuilding the new series all at once (osg-build koji *).</p>
+<p>After some consideration, I wholeheartedly endorse this approach for new OSG series -- for all but academic exercises. Rebuilding in dependency order when all the dependencies are already built just seems like wasted effort.</p>
+<h2 id="doing-scratch-builds-of-everything-first">Doing scratch builds of everything first<a class="headerlink" href="#doing-scratch-builds-of-everything-first" title="Permanent link">&para;</a></h2>
+<p>Before doing the mass rebuilds in a new build target, it seems to be a good idea to do scratch builds of all the packages in the current series first. (Or, at least the ones we intend to bring into the new build target.) This will give us a chance to see any build failures that have crept in (possibly due to upstream changes in the OS or EPEL), and fix them first if desired, but in any case avoid the confusion of seeing the failures for the first time in the new build target.</p>
+<p>Doing mass scratch rebuilds for an existing series is easy, as they can all be done at once.</p>
+<p>Relatedly, doing a round of scratch builds <strong>after</strong> successfully building all packages into a new build target can also be useful, because it can reveal dependency issues only present in the new set of builds. Doing developer test installs or a round of VMU tests may also uncover any runtime dependency issues.</p>
+<h2 id="options-for-calculating-build-dependencies">Options for calculating build dependencies<a class="headerlink" href="#options-for-calculating-build-dependencies" title="Permanent link">&para;</a></h2>
+<p>We can get dependency information from a number of places:</p>
+<ul>
+<li>scraping .spec files for Requires/BuildRequires/Provides and <code>%package</code> names</li>
+<li>querying existing rpms directly on koji-hub and our OS/EPEL mirrors (<code>rpm -q</code>)</li>
+<li>querying srpms from <code>osg-build prebuild</code> directly for build requirements</li>
+<li>inspecting previous buildroots to determine resolved build dependencies</li>
+<li>use <code>repoquery</code> to determine whatrequires/whatprovides for packages</li>
+<li>use <code>yum-builddep</code> to find packages with all build requirements available</li>
+<li>using the repodata (primary+filelists) from rpm repositories, including:</li>
+<li>upcoming + 3.X development + external repos (Centos/EPEL/JPackage), OR</li>
+<li>osg-upcoming-elX-build, which includes them all</li>
+</ul>
+<p>One important aspect is that the runtime requirements are also relevant for determining build requirements, since a build will require installing all of the runtime requirements of the packages required for the build.</p>
+<p>That is, <code>(A BuildRequires B) and (B Requires C)</code> implies <code>A BuildRequires C</code>.</p>
+<p>Combined with the fact that runtime requirements are transitive, that is, <code>(A Requires B) and (B Requires C)</code> implies <code>A Requires C</code>, computing build requirements is a recursive operation, which can be many levels deep.</p>
+<p>Another question to keep in mind is whether to use versioned requires/provides (i.e., BuildRequires xyz &gt;= 1.2-3) or to only pay attention to the package/capability names. Similarly, whether to pay any attention to conflicts/obsoletes. These would add complexity to anything except the standard tools (repoquery, yum-builddep) which already take these things into account. (And we may get pretty far even without paying attention to versions.)</p>
+<p>Note also that the dependencies/capabilities for a given package often varies between different rhel versions.</p>
+<h2 id="pre-computing-predictive-vs-just-in-time">Pre-computing (predictive) vs just-in-time<a class="headerlink" href="#pre-computing-predictive-vs-just-in-time" title="Permanent link">&para;</a></h2>
+<p>Two different approaches to determining dependency order for building are:</p>
+<ul>
+<li>pre compute all dependencies based on an existing series/rhel version, OR</li>
+<li>compute which remaining packages have all build reqs satisfied now</li>
+</ul>
+<p>The first approach has the benefit of being able to determine the packages that need to be built in order to accomplish a smaller subset goal first -- for example, to be able to install osg-wn-client. (And, if there are problems with resolving certain dependencies (say with osg-wn-client again), it will become apparent earlier, as opposed to not until all possible-to-build packages have been built.) The limitation of this approach is that the predicted set of files/capabilities that a binary package will provide may differ between osg series/rhel versions, and as a result may be inaccurate for the new build target.</p>
+<p>The second approach provides somewhat more confidence about being able to correctly determine which packages should be buildable at any point in time, but (as mentioned above) it is a bit more in the dark about seeing the bigger picture of the dependency graph or being able to build subsets of targets.</p>
+<p>It may be useful to have both options available -- building from the list in the second approach, but using the first mechanism to have a better picture of where things are at, or perhaps to steer toward finishing a certain subset of packages first.</p>
+<h2 id="package-list-closure-pruning">Package list closure, pruning<a class="headerlink" href="#package-list-closure-pruning" title="Permanent link">&para;</a></h2>
+<p>At some point (either in the planning stage or after building packages into the new build target), we need to ensure that the new osg series/rhel version contains all of its install requirements for all of its packages. It would probably suffice to do a VMU run that installs each package (perhaps individually, to avoid conflicts).</p>
+<p>But if we go about it more analytically, we may also get, as a result, a list of packages which we previously only maintained for the purpose of building our other packages (ie, that were never required at runtime for any use cases that we cared about), which now, in the new target, are no longer build requirements (directly or indirectly) for any packages that we care about installing. Packages in this category could be reviewed to also be dropped from the new build target.</p>
+<h2 id="proposal-recommendations">Proposal / Recommendations<a class="headerlink" href="#proposal-recommendations" title="Permanent link">&para;</a></h2>
+<p>As mentioned earlier, my recommendation is that we treat a new OSG series differently than a new RHEL version.</p>
+<h3 id="for-a-new-osg-series">For a new OSG series:<a class="headerlink" href="#for-a-new-osg-series" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>update native/redhat packaging area to reflect packages for new series, including upcoming + trunk - removed packages</p>
+</li>
+<li>
+<p>tag existing builds of packages in new list into the new development tag (eg, for osg-3.3-el6, tag the .osgup.el6 and .osg32.el6 builds into osg-3.3-el6-development)</p>
+</li>
+<li>
+<p>build all packages in new packaging area into new build target at once</p>
+</li>
+<li>
+<p>for all successful builds, remove corresponding old builds (eg, .osgup/.osg32) from the new tag (osg-3.3-el6-development)</p>
+</li>
+</ul>
+<h3 id="for-a-new-rhel-version">For a new RHEL version:<a class="headerlink" href="#for-a-new-rhel-version" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pull the repodata from the relevant <code>*-build</code> repo from koji:</li>
+</ul>
+<p>for pre-computing, use a build repo from an existing rhel version:<br />
+<a href="https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/">https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/</a></p>
+<p>for just-in-time, use the new build repo:<br />
+<a href="https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/">https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/</a></p>
+<p>the primary and filelists (sqlite) files can be used to get runtime requires and provides. (Note that this includes packages from the relevant external repos, also.)</p>
+<ul>
+<li>generate srpms repodata for the current set of packages to build, with osg-build prebuild and createrepo.</li>
+</ul>
+<p>the primary (sqlite) file can be used to get build-requires.</p>
+<ul>
+<li>use sql to resolve direct dependencies at the package name level:<ul>
+<li>src-pkg: bin-pkg (BuildRequires)</li>
+<li>bin-pkg: bin-pkg (Requires)</li>
+<li>bin-pkg: src-pkg (bin-pkg comes from which src-pkg? only needed for pre-computing dependencies)</li>
+</ul>
+</li>
+<li>resolve this list into a full list of recursive build dependencies.</li>
+</ul>
+<p>Since this is recursive, there is no way to do it in a fixed number of sql queries. However the above input list is already directly consumable by Make, which is designed to handle recursive dependencies just like this. Or we can write a new tool to do it in python.</p>
+<ul>
+<li>build ready-to-be-built packages</li>
+<li>update our copy of the repodata from the regen'ed <code>*-build</code> repo, as often as new versions become available</li>
+<li>update our dependency lists</li>
+<li>repeat until all packages are built</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../resurrecting-epel-packages/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Resurrecting Epel Packages
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../development-process/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Development Process
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

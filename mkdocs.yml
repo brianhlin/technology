@@ -10,6 +10,7 @@ extra_css:
   - css/extra.css
 
 nav:
+  - foo: 'foo.md'
   - Home: 'index.md'
   - Software:
     - Packaging:

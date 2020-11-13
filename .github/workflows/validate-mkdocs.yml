@@ -17,9 +17,9 @@ jobs:
       - name: Test links
         timeout-minutes: 10
         uses: docker://klakegg/html-proofer:3.16.0
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
         with:
-          env:
-            GITHUB_REPOSITORY: ${{ github.repository }}
           args: >-
             --allow-hash-href
             --check-html
